@@ -1,0 +1,14 @@
+apiVersion: skaffold/v1alpha1
+kind: Config
+build:
+  artifacts:
+  - imageName: registry:443/testing/prototype
+    workspace: .
+  local: {}
+deploy:
+  kubectl:
+    manifests:
+    - paths:
+      - manifests/*.yaml
+      parameters:
+        IMAGE_NAME: registry:443/testing/prototype
